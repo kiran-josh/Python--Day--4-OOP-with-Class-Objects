@@ -1,0 +1,40 @@
+"""
+Name: Kiran G
+Program: using Python's OOPS concept From the given list [10, 501,22, 37, 100, 999, 87, 351] 
+create two class methods area and perimeter which will be going to calculate the area and perimeter.
+
+"""
+
+class Rectangle:
+    def __init__(self, length, width):
+        """Initialize the Rectangle with length and width."""
+        self.length = length
+        self.width = width
+
+    @classmethod
+    def from_list(cls, dimensions):
+        """Create a list of Rectangle objects from a list of dimensions."""
+        rectangles = []
+        for i in range(0, len(dimensions), 2):
+            if i + 1 < len(dimensions):  # Ensure there is a pair
+                rectangles.append(cls(dimensions[i], dimensions[i + 1]))
+        return rectangles
+
+    def area(self):
+        """Calculate the area of the rectangle."""
+        return self.length * self.width
+
+    def perimeter(self):
+        """Calculate the perimeter of the rectangle."""
+        return 2 * (self.length + self.width)
+
+# Example usage
+if __name__ == "__main__":
+    dimensions = [10, 501, 22, 37, 100, 999, 87, 351]
+    rectangles = Rectangle.from_list(dimensions)
+
+    for i, rectangle in enumerate(rectangles):
+        print(f"Rectangle {i + 1}:")
+        print(f"  Length: {rectangle.length}, Width: {rectangle.width}")
+        print(f"  Area: {rectangle.area()}")
+        print(f"  Perimeter: {rectangle.perimeter()}")

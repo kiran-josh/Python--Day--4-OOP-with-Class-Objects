@@ -1,0 +1,30 @@
+"""
+Name: Kiran G
+Program: Using python's OOPS concept create proper member variables inside the task if required and use them when necessary. 
+For example for this task create a class private variable named pi = 3.141
+
+"""
+
+class Circle:
+    # Private member variable
+    __pi = 3.141  # Private variable, conventionally private
+
+    def __init__(self, radius):
+        """Initialize the Circle with a radius."""
+        self.radius = radius
+
+    def area(self):
+        """Calculate the area of the circle."""
+        return Circle.__pi * (self.radius ** 2)
+
+    def circumference(self):
+        """Calculate the circumference of the circle."""
+        return 2 * Circle.__pi * self.radius
+
+# Example usage
+if __name__ == "__main__":
+    radius = float(input("Enter the radius of the circle: "))
+    circle = Circle(radius)
+
+    print(f"Area of the circle: {circle.area()}")
+    print(f"Circumference of the circle: {circle.circumference()}")
